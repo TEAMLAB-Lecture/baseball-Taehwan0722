@@ -256,7 +256,7 @@ def main():
         if user_input_number == '0':
             break
         if not user_input_number or is_validated_number(user_input_number):
-            print('Wrong Input, Input again')
+            print('Wrong Input')
             continue
         SorB = get_strikes_or_ball(random_number, user_input_number)
         print(f'Strikes : {SorB[0]}, Balls : {SorB[1]}')

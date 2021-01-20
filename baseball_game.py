@@ -250,6 +250,19 @@ def main():
     user_input = 999
     random_number = str(get_not_duplicated_three_digit_number())
     print("Random Number is : ", random_number)
+    user_input_number = input('Input guess number')
+    regame = True
+    while regame:
+        if not user_input_number or is_validated_number(user_input_number):
+            print('Wrong Input, Input again')
+            user_input_number = input("Input guess number")
+            continue
+        SorB = get_strikes_or_ball(random_number, user_input_number)
+        print('Strikes : {SorB[0]}, Balls : {SorB[1]}')
+        if SorB[0] == 3:
+            regame = is_yes(input('You win, one more(Y/N)?'))
+            random_number = str(get_not_duplicated_three_digit_number())
+        
     # ===Modify codes below=============
     # 위의 코드를 포함하여 자유로운 수정이 가능함
 

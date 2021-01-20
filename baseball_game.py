@@ -111,7 +111,7 @@ def is_validated_number(user_input_number):
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
 
     # ==================================
-    return True if is_digit(user_input_number) and is_between_100_and_999(user_input_number) and is_duplicated_number(user_input_number) else False
+    return True if is_digit(user_input_number) and is_between_100_and_999(user_input_number) and not is_duplicated_number(user_input_number) else False
 
 
 def get_not_duplicated_three_digit_number():
@@ -253,6 +253,8 @@ def main():
     regame = True
     while regame:
         user_input_number = input('Input guess number')
+        if user_input_number == '0':
+            break
         if not user_input_number or is_validated_number(user_input_number):
             print('Wrong Input, Input again')
             continue

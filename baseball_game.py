@@ -266,7 +266,7 @@ def main():
                 print("Random Number is : ", random_number)
         else:
             SorB = get_strikes_or_ball(random_number, user_input_number)
-            print(f'Strikes : {SorB[0]}, Balls : {SorB[1]})
+            print(f'Strikes : {SorB[0]}, Balls : {SorB[1]}')
         
     # ===Modify codes below=============
     # 위의 코드를 포함하여 자유로운 수정이 가능함

@@ -136,9 +136,9 @@ def get_not_duplicated_three_digit_number():
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
     # get_random_number() 함수를 사용하여 random number 생성
 
-    result = get_random_number()
-    while not is_duplicated_number(result):
-        result = get_random_number()
+    result = str(get_random_number())
+    while is_duplicated_number(result):
+        result = str(get_random_number())
     # ==================================
     return result
 
@@ -171,8 +171,8 @@ def get_strikes_or_ball(user_input_number, random_number):
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
     result = [0, 0]
-    for idx1, value1 in user_input_number:
-        for idx2, value2 in random_number:
+    for idx1, value1 in enumerate(user_input_number):
+        for idx2, value2 in enumerate(random_number):
             if idx1 == idx2 and value1 == value2:
                 result[0] += 1
             elif value1 == value2:
@@ -240,7 +240,7 @@ def is_no(one_more_input):
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
 
-    result = True if one_more_input.lower() in {'n', 'NO'} else False
+    result = True if one_more_input.lower() in {'n', 'no'} else False
     # ==================================
     return result
 
@@ -248,17 +248,16 @@ def is_no(one_more_input):
 def main():
     print("Play Baseball")
     user_input = 999
-    random_number = str(get_not_duplicated_three_digit_number())
+    random_number = get_not_duplicated_three_digit_number()
     print("Random Number is : ", random_number)
-    user_input_number = input('Input guess number')
     regame = True
     while regame:
+        user_input_number = input('Input guess number')
         if not user_input_number or is_validated_number(user_input_number):
             print('Wrong Input, Input again')
-            user_input_number = input("Input guess number")
             continue
         SorB = get_strikes_or_ball(random_number, user_input_number)
-        print('Strikes : {SorB[0]}, Balls : {SorB[1]}')
+        print(f'Strikes : {SorB[0]}, Balls : {SorB[1]}')
         if SorB[0] == 3:
             regame = is_yes(input('You win, one more(Y/N)?'))
             random_number = str(get_not_duplicated_three_digit_number())

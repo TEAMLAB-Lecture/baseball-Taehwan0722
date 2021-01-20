@@ -257,6 +257,9 @@ def main():
             break
         if not user_input_number or not is_validated_number(user_input_number) or not (is_no(check) or is_yes(check)):
             print('Wrong Input, Input again')
+        else:
+            SorB = get_strikes_or_ball(random_number, user_input_number)
+            print(f'Strikes : {SorB[0]}, Balls : {SorB[1]}')
         if SorB[0] == 3:
             check = input('You win, one more(Y/N)?')
             if is_no(check) or is_yes(check):
@@ -264,9 +267,6 @@ def main():
             if is_yes(check):
                 random_number = str(get_not_duplicated_three_digit_number())
                 print("Random Number is : ", random_number)
-        else:
-            SorB = get_strikes_or_ball(random_number, user_input_number)
-            print(f'Strikes : {SorB[0]}, Balls : {SorB[1]}')
         
     # ===Modify codes below=============
     # 위의 코드를 포함하여 자유로운 수정이 가능함
